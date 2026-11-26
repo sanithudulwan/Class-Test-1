@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Car | DriveHub</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="add-car-page">
+
+    <div class="add-car-container">
+
+        <div class="add-car-header">
+            <h1>Add a New Car</h1>
+            <p>Enter the vehicle details below to add it to the inventory.</p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" class="add-car-form">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">Save Car</button>
+        </form>
+
+        <a href="{% url 'home' %}" class="back-home">← Back to Home</a>
+
+    </div>
+
+</body>
+</html>
